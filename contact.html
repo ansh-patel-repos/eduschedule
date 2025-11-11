@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - EduSchedule</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <i class="fas fa-calendar-alt"></i>
+          <span>EduSchedule</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li>
+            <a href="tt_selection/tt_selector.html" class="nav-link"
+              >Generator</a
+            >
+          </li>
+          <li><a href="templates.html" class="nav-link">Templates</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="container">
+          <h1><i class="fas fa-envelope"></i> Contact Us</h1>
+          <p>Get in touch with our team - we'd love to hear from you</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="contact-content">
+          <!-- Contact Form -->
+          <div class="contact-form-section">
+            <h2>Send us a Message</h2>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName"
+                    ><i class="fas fa-user"></i> First Name</label
+                  >
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    required
+                    placeholder="John"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lastName"
+                    ><i class="fas fa-user"></i> Last Name</label
+                  >
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    required
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email"
+                    ><i class="fas fa-envelope"></i> Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="john.doe@example.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="subject"
+                    ><i class="fas fa-tag"></i> Subject</label
+                  >
+                  <select id="subject" name="subject" required>
+                    <option value="">Select Subject</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="feature">Feature Request</option>
+                    <option value="bug">Bug Report</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message"
+                  ><i class="fas fa-comment"></i> Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Tell us how we can help you..."
+                  rows="6"
+                ></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-large">
+                  <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+              </div>
+            </form>
+
+            <div
+              id="contactSuccess"
+              class="success-message"
+              style="display: none"
+            >
+              <i class="fas fa-check-circle"></i>
+              Thank you for your message! We'll get back to you within 24 hours.
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="method-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="method-info">
+                  <h3>Email</h3>
+                  <p>support@eduschedule.com</p>
+                  <span>We typically respond within 24 hours</span>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="method-info">
+                  <h3>Phone</h3>
+                  <p>+1 (555) 123-4567</p>
+                  <span>Mon-Fri, 9AM-6PM EST</span>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="method-info">
+                  <h3>Address</h3>
+                  <p>123 Education Street<br />Tech City, TC 12345</p>
+                  <span>Visit us by appointment</span>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="method-icon">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <div class="method-info">
+                  <h3>Live Chat</h3>
+                  <p>Available on our website</p>
+                  <span>Mon-Fri, 9AM-6PM EST</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="social-section">
+              <h3>Follow Us</h3>
+              <div class="social-links">
+                <a href="#" class="social-link">
+                  <i class="fab fa-facebook"></i>
+                  <span>Facebook</span>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-twitter"></i>
+                  <span>Twitter</span>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-instagram"></i>
+                  <span>Instagram</span>
+                </a>
+                <a href="#" class="social-link">
+                  <i class="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Is EduSchedule free to use?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes! EduSchedule is completely free to use. All features
+                  including timetable generation, conflict detection, and export
+                  options are available at no cost.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do I need to create an account?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  No account required! Your timetable data is stored locally in
+                  your browser, ensuring privacy and instant access without any
+                  registration process.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Can I use EduSchedule on mobile devices?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Absolutely! EduSchedule is fully responsive and works
+                  perfectly on smartphones, tablets, and desktop computers.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How do I export my timetable?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  You can export your timetable as a CSV file or print it
+                  directly from the generator page. Just click the export or
+                  print buttons in the controls section.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What if I encounter a bug or issue?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Please report any bugs using the contact form above or email
+                  us directly at support@eduschedule.com. We take all reports
+                  seriously and fix issues quickly.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Can I suggest new features?</h3>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We love feature suggestions! Use the contact form with
+                  "Feature Request" as the subject, or reach out to us through
+                  any of our communication channels.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>&copy; 2025 EduSchedule. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>

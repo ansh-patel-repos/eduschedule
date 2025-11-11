@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSchedule - College Timetable Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-calendar-alt"></i>
+                <span>EduSchedule</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="tt_selection/tt_selector.html" class="nav-link">Generator</a></li>
+                <li><a href="templates.html" class="nav-link">Templates</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Create Perfect College Timetables</h1>
+                <p class="hero-subtitle">Generate, manage, and optimize your class schedules with our intelligent timetable generator. Built for students, by students.</p>
+                <div class="hero-buttons">
+                    <a href="tt_selection/tt_selector.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-plus"></i>
+                        Create Timetable
+                    </a>
+                    <a href="#features" class="btn btn-secondary btn-large">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="timetable-preview">
+                    <div class="preview-header">
+                        <div class="preview-title">Weekly Schedule</div>
+                        <div class="preview-controls">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                    </div>
+                    <div class="preview-grid">
+                        <div class="preview-cell header">Time</div>
+                        <div class="preview-cell header">Mon</div>
+                        <div class="preview-cell header">Tue</div>
+                        <div class="preview-cell header">Wed</div>
+                        <div class="preview-cell time">9:00</div>
+                        <div class="preview-cell class math">Math</div>
+                        <div class="preview-cell empty"></div>
+                        <div class="preview-cell class physics">Physics</div>
+                        <div class="preview-cell time">10:00</div>
+                        <div class="preview-cell empty"></div>
+                        <div class="preview-cell class chemistry">Chemistry</div>
+                        <div class="preview-cell empty"></div>
+                        <div class="preview-cell time">11:00</div>
+                        <div class="preview-cell class english">English</div>
+                        <div class="preview-cell class math">Math</div>
+                        <div class="preview-cell class biology">Biology</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose EduSchedule?</h2>
+                <p>Powerful features designed to make timetable creation effortless</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Smart Conflict Detection</h3>
+                    <p>Automatically detects scheduling conflicts and suggests optimal time slots for your classes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Responsive</h3>
+                    <p>Access your timetable anywhere, anytime. Fully optimized for mobile, tablet, and desktop devices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Export & Print</h3>
+                    <p>Export your timetable as PDF, CSV, or print directly. Share with friends or keep offline copies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <h3>Auto Save</h3>
+                    <p>Never lose your work. All changes are automatically saved to your browser's local storage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Customizable Design</h3>
+                    <p>Personalize your timetable with custom colors, themes, and layouts to match your style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Flexible Time Slots</h3>
+                    <p>Create custom time slots that fit your college schedule. Support for any time format and duration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Students Using</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Colleges</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50,000+</div>
+                    <div class="stat-label">Timetables Created</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in just three simple steps</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Add Your Classes</h3>
+                        <p>Enter your subjects, instructors, rooms, and preferred time slots. Our intuitive form makes it quick and easy.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Auto-Generate Schedule</h3>
+                        <p>Our smart algorithm automatically arranges your classes, detects conflicts, and optimizes your weekly schedule.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Export & Share</h3>
+                        <p>Download your timetable, print it, or share it with classmates. Keep it synced across all your devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Students Say</h2>
+                <p>Join thousands of satisfied students</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"EduSchedule saved me hours of manual planning. The conflict detection is amazing!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Johnson</div>
+                            <div class="author-title">Computer Science Student</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Clean interface, powerful features. Exactly what every college student needs."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Mike Chen</div>
+                            <div class="author-title">Engineering Student</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The mobile app works perfectly. I can check my schedule anywhere on campus."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Emily Davis</div>
+                            <div class="author-title">Business Student</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Create Your Perfect Timetable?</h2>
+                <p>Join thousands of students who have simplified their scheduling with EduSchedule</p>
+                <a href="tt_selection/tt_selector.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-rocket"></i>
+                    Get Started Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>EduSchedule</span>
+                    </div>
+                    <p>The ultimate college timetable generator for students worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="tt_selection/tt_selector.html">Timetable Generator</a></li>
+                        <li><a href="templates.html">Templates</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="#">Conflict Detection</a></li>
+                        <li><a href="#">Export Options</a></li>
+                        <li><a href="#">Mobile Support</a></li>
+                        <li><a href="#">Auto Save</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduSchedule. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetable Admin Panel - EduSchedule</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  <link rel="stylesheet" href="./css/1_base.css">
+  <link rel="stylesheet" href="./css/2_navigation.css">
+  <link rel="stylesheet" href="./css/3_forms.css">
+  <link rel="stylesheet" href="./css/4_buttons.css">
+  <link rel="stylesheet" href="./css/5_tags.css">
+  <link rel="stylesheet" href="./css/6_cards.css">
+  <link rel="stylesheet" href="./css/7_tables.css">
+  <link rel="stylesheet" href="./css/8_modals.css">
+  <link rel="stylesheet" href="./css/9_timetables.css">
+  <link rel="stylesheet" href="./css/10_editor.css">
+  <link rel="stylesheet" href="./css/11_drag-drop.css">
+  <link rel="stylesheet" href="./css/12_preferences.css">
+  <link rel="stylesheet" href="./css/13_animations.css">
+  <link rel="stylesheet" href="./css/14_responsive.css">
+
+    <!-- Scripts for PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation (Remains the same) -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <i class="fas fa-calendar-alt"></i>
+          <span>EduSchedule</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li>
+            <a href="/tt_selection/tt_selector.html" class="nav-link active"
+              >Generator</a
+            >
+          </li>
+          <li><a href="../templates.html" class="nav-link">Templates</a></li>
+          <li><a href="../about.html" class="nav-link">About</a></li>
+          <li><a href="../contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- NEW: Admin Panel Container -->
+    <div class="admin-panel-container">
+      <div class="setup-header">
+        <h1><i class="fas fa-tools"></i> Timetable Admin Panel</h1>
+        <p>Manage all college resources and courses in one place.</p>
+      </div>
+
+      <!-- 1. Global Resources Section -->
+      <div class="admin-section">
+        <h2><i class="fas fa-globe"></i> Global Resources</h2>
+
+        <!-- Global Teachers Input -->
+        <div class="form-group">
+          <label for="teacherInput">All College Teachers:</label>
+
+          <!-- Separate tag display -->
+          <div class="tags-display" id="globalTeachersInput"></div>
+
+          <!-- Separate input field -->
+          <input
+            type="text"
+            class="tag-input"
+            id="teacherInput"
+            placeholder="Type teacher name and press Enter..."
+          />
+
+          <div class="help-text">
+            Add every teacher available in the college here.
+          </div>
+        </div>
+
+        <!-- Global Rooms Input -->
+<div class="form-group">
+  <label for="classroomInput">All College Classrooms:</label>
+  <div class="tags-display" id="globalClassroomsInput"></div>
+  <input
+    type="text"
+    class="tag-input"
+    id="classroomInput"
+    placeholder="Type classroom number and press Enter (e.g., 101, 102, 201)..."
+  />
+  <div class="help-text">Add classroom numbers. (C) will be added automatically.</div>
+</div>
+
+<div class="form-group">
+  <label for="labInput">All College Labs:</label>
+  <div class="tags-display" id="globalLabsInput"></div>
+  <input
+    type="text"
+    class="tag-input"
+    id="labInput"
+    placeholder="Type lab name and press Enter (e.g., Physics Lab, Computer Lab)..."
+  />
+  <div class="help-text">Add lab names. (L) will be added automatically.</div>
+</div>
+
+
+        <!-- ✅ Global Specializations Input -->
+        <div class="form-group">
+          <label for="specializationInput">All Specialization Subjects:</label>
+
+          <!-- Tags Display -->
+          <div class="tags-display" id="globalSpecializationsInput"></div>
+
+          <!-- Input Field -->
+          <input
+            type="text"
+            class="tag-input"
+            id="specializationInput"
+            placeholder="E.g., AI, Cyber Security, Data Science..."
+          />
+
+          <div class="help-text">
+            Add all specialization groups (e.g., Artificial Intelligence, Cyber
+            Security, Data Science, etc.)
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher Preferences Section -->
+      <div class="section">
+        <h2>👤 Teacher Preferences</h2>
+        <p>Configure teacher scheduling preferences and constraints.</p>
+
+        <div class="form-group">
+          <label for="teacherPrefSelect">Select Teacher:</label>
+          <select id="teacherPrefSelect" class="form-control">
+            <option value="">-- Select a teacher --</option>
+          </select>
+        </div>
+
+        <div id="teacherPrefForm" style="display: none">
+          <h3 id="selectedTeacherName" style="margin-top: 20px"></h3>
+
+          <!-- Preferred Slots -->
+          <div class="form-group">
+            <label>✅ Preferred Time Slots:</label>
+            <div id="preferredSlotsList" class="slot-list"></div>
+            <button
+              type="button"
+              class="btn btn-sm btn-success"
+              onclick="addPreferredSlot()"
+            >
+              + Add Preferred Slot
+            </button>
+          </div>
+
+          <!-- Blocked Slots -->
+          <div class="form-group">
+            <label>❌ Blocked/Unavailable Slots:</label>
+            <div id="blockedSlotsList" class="slot-list"></div>
+            <button
+              type="button"
+              class="btn btn-sm btn-danger"
+              onclick="addBlockedSlot()"
+            >
+              + Add Blocked Slot
+            </button>
+          </div>
+
+          <!-- Preferred Days -->
+          <div class="form-group">
+            <label>📅 Preferred Days (leave empty for no preference):</label>
+            <div class="checkbox-group">
+              <label
+                ><input type="checkbox" id="prefMonday" value="Monday" />
+                Monday</label
+              >
+              <label
+                ><input type="checkbox" id="prefTuesday" value="Tuesday" />
+                Tuesday</label
+              >
+              <label
+                ><input type="checkbox" id="prefWednesday" value="Wednesday" />
+                Wednesday</label
+              >
+              <label
+                ><input type="checkbox" id="prefThursday" value="Thursday" />
+                Thursday</label
+              >
+              <label
+                ><input type="checkbox" id="prefFriday" value="Friday" />
+                Friday</label
+              >
+            </div>
+          </div>
+
+          <!-- Constraints -->
+          <div class="form-group">
+            <label>⚙️ Maximum Consecutive Classes:</label>
+            <input
+              type="number"
+              id="maxConsecutive"
+              min="1"
+              max="5"
+              value="3"
+              class="form-control"
+              style="width: 100px"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>📊 Maximum Classes Per Day:</label>
+            <input
+              type="number"
+              id="maxDaily"
+              min="1"
+              max="8"
+              value="5"
+              class="form-control"
+              style="width: 100px"
+            />
+          </div>
+
+          <button type="button" class="btn btn-primary" onclick="saveCurrentTeacherPreferences()">
+        </div>
+      </div>
+
+      <!-- 2. Global Time Settings Section -->
+      <div class="admin-section">
+        <h2><i class="fas fa-clock"></i> Global Time Settings</h2>
+        <div class="time-settings-grid">
+          <div class="form-group">
+            <label for="collegeStartTime">College Start Time:</label>
+            <input type="time" id="collegeStartTime" value="09:00" required />
+          </div>
+          <div class="form-group">
+            <label for="collegeEndTime">College End Time:</label>
+            <input type="time" id="collegeEndTime" value="16:00" required />
+          </div>
+          <div class="form-group">
+            <label for="recessStartTime">Recess Start Time:</label>
+            <input type="time" id="recessStartTime" value="12:00" required />
+          </div>
+          <div class="form-group">
+            <label for="recessDuration">Recess Duration (min):</label>
+            <input
+              type="number"
+              id="recessDuration"
+              value="60"
+              min="10"
+              max="120"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Defined Courses Section -->
+      <div class="admin-section">
+        <h2><i class="fas fa-university"></i> Defined Courses</h2>
+        <table class="courses-table" id="coursesTable">
+          <thead>
+            <tr>
+              <th>Branch</th>
+              <th>Semester</th>
+              <th>Subjects</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Course rows will be added by JavaScript -->
+          </tbody>
+        </table>
+        <button id="addCourseBtn" class="btn btn-secondary">
+          <i class="fas fa-plus"></i> Add New Course
+        </button>
+      </div>
+
+      <!-- 4. Main Action Button -->
+      <div class="form-actions">
+        <button id="generateAllBtn" class="btn btn-primary btn-large">
+          <i class="fas fa-cogs"></i> Generate All Timetables
+        </button>
+      </div>
+    </div>
+
+    <!-- NEW: Add/Edit Course Modal (Initially Hidden) -->
+    <div id="addCourseModal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <h2 id="modalTitle">Add New Course</h2>
+        <form id="courseDetailForm" novalidate>
+          <input type="hidden" id="courseEditId" />
+          <div class="form-group">
+            <label for="courseBranch">Branch Name:</label>
+            <input
+              type="text"
+              id="courseBranch"
+              placeholder="E.g., Computer Science"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="courseSemester">Semester:</label>
+            <input
+              type="number"
+              id="courseSemester"
+              placeholder="E.g., 5"
+              required
+            />
+          </div>
+          <hr />
+          <h3>Subjects for this Course</h3>
+          <div id="subjectsList">
+            <!-- Subject input rows will be added here by JavaScript -->
+          </div>
+          <button
+            type="button"
+            id="addSubjectBtn"
+            class="btn btn-secondary btn-small"
+          >
+            <i class="fas fa-plus"></i> Add Subject
+          </button>
+
+          <div class="form-group">
+            <label for="batchInput">Batches:</label>
+
+            <!-- Separate tag display -->
+            <div class="tags-display" id="globalBatchesDisplay"></div>
+
+            <!-- Separate input field -->
+            <input
+              type="text"
+              class="tag-input"
+              id="batchInput"
+              placeholder="Type batch name and press Enter..."
+            />
+
+            <div class="help-text">
+              Add batches like A1, A2, A3 etc. (used for lab distribution)
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button type="submit" class="btn btn-primary">Save Course</button>
+            <button type="button" id="cancelBtn" class="btn btn-danger">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Timetable Display Section (Remains mostly the same but with a selector) -->
+    <div
+      id="timetableContainer"
+      class="timetable-section"
+      style="display: none"
+    >
+<div class="timetable-header">
+  <img id="university-logo" 
+       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaqQNwmS0yJreGcQbctWmpn-GlMATGSH6HaQ&s" 
+       alt="University logo" />
+  
+  <div class="timetable-selector-container">
+    <select id="timetableSelector"></select>
+  </div>
+</div>
+
+<!-- Title BELOW header (as separate element) -->
+<h2 class="timetable-title" id="timetableTitle"></h2>
+
+
+      <div class="timetable-wrapper">
+        <table id="timetableTable" class="timetable-table">
+          <thead>
+            <tr class="timetable-header-row"></tr>
+          </thead>
+          <tbody id="timetableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="timetable-actions">
+        <!-- Undo/Redo Buttons (hidden by default) -->
+        <button
+          type="button"
+          class="btn btn-info"
+          id="undoBtn"
+          onclick="undoChange()"
+          style="display: none"
+          title="Undo last change"
+        >
+          <i class="fas fa-undo"></i> Undo
+        </button>
+        <button
+          type="button"
+          class="btn btn-info"
+          id="redoBtn"
+          onclick="redoChange()"
+          style="display: none"
+          title="Redo"
+        >
+          <i class="fas fa-redo"></i> Redo
+        </button>
+
+        <!-- Edit Mode Buttons -->
+        <button
+          type="button"
+          class="btn btn-warning"
+          id="editTimetableBtn"
+          onclick="enableEditMode()"
+        >
+          <i class="fas fa-edit"></i> Edit Timetable
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          id="saveTimetableBtn"
+          onclick="saveChanges()"
+          style="display: none"
+        >
+          <i class="fas fa-save"></i> Save Changes
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          id="cancelEditBtn"
+          onclick="cancelChanges()"
+          style="display: none"
+        >
+          <i class="fas fa-times"></i> Cancel
+        </button>
+
+        <!-- Normal Buttons -->
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="printBtn"
+          onclick="printTimetable()"
+        >
+          Print
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="exportPdfBtn"
+          onclick="exportToPDF()"
+        >
+          Export as PDF
+        </button>
+      </div>
+
+      <!-- Conflict Resolution Panel -->
+      <div id="conflictPanel" class="conflict-panel" style="display: none">
+        <h4>⚠️ Conflicts Detected</h4>
+        <div id="conflictList"></div>
+        <button
+          type="button"
+          class="btn btn-warning"
+          onclick="autoResolveConflicts()"
+        >
+          <i class="fas fa-magic"></i> Auto-Resolve All Conflicts
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="hideConflictPanel()"
+        >
+          Dismiss
+        </button>
+      </div>
+
+      <!-- Conflict Warning Panel (hidden by default) -->
+      <div id="conflictPanel" class="conflict-panel" style="display: none">
+        <h4>⚠️ Conflicts Detected</h4>
+        <div id="conflictList"></div>
+      </div>
+    </div>
+
+    <!-- IMPORTANT: Make sure the script tag is at the end -->
+    <script type="module" src="./scheduler_data.js"></script>
+    <script type="module" src="./scheduler_utils.js"></script>
+    <script type="module" src="./timetable_renderer.js"></script>
+    <script type="module" src="./scheduler_core.js"></script>
+    <script type="module" src="./course_setup.js"></script>
+    <script type="module" src="./timetable_editor.js"></script>
+    <script type="module">
+      import { printTimetable, exportToPDF } from "./timetable_renderer.js";
+
+      document
+        .getElementById("printBtn")
+        ?.addEventListener("click", printTimetable);
+      document
+        .getElementById("exportPdfBtn")
+        ?.addEventListener("click", exportToPDF);
+    </script>
+  </body>
+</html>

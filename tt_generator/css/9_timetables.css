@@ -1,0 +1,239 @@
+/* ============================================
+   TIMETABLE DISPLAY - FIXED LAYOUT
+   ============================================ */
+.timetable-section {
+  max-width: 1300px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Row: Logo (left) + Selector (right) */
+.timetable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+/* University Logo - Left Side */
+.timetable-header #university-logo {
+  max-width: 150px;
+  height: auto;
+  margin: 0;
+}
+
+/* Selector Container - Right Side */
+.timetable-selector-container {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+#timetableSelector {
+  width: auto;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+#timetableSelector:hover {
+  border-color: var(--primary-color);
+}
+
+#timetableSelector:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Title - Centered Below Header */
+.timetable-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--bg-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Timetable Table Wrapper */
+.timetable-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+}
+
+/* Action Buttons Below Table */
+.timetable-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f3f4f6;
+  flex-wrap: wrap;
+}
+
+/* Day Cell */
+.day-cell {
+  background-color: #f8f9fa;
+  font-weight: 700;
+  color: #343a40;
+  width: 100px;
+  border-right: 2px solid #dee2e6;
+  text-align: center;
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+/* Class Cells */
+.class-cell {
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  min-width: 120px;
+  vertical-align: top;
+  transition: all 0.2s ease;
+  border: 1px solid #dee2e6;
+}
+
+.class-cell:hover {
+  background-color: #f8f9fa;
+}
+
+.class-cell .subject {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.class-cell .teacher {
+  font-size: 0.85rem;
+  color: #764ba2;
+  margin-top: 4px;
+}
+
+.class-cell .room {
+  font-size: 0.8rem;
+  color: #868e96;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Lab Cells */
+.class-cell.lab-merged {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  font-weight: 600;
+  border: 2px solid #3b82f6;
+  border-radius: 6px;
+}
+
+.lab-cell-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+}
+
+/* Multi-class Cells */
+.multi-class {
+  padding: 3px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.multi-block {
+  margin: 2px 0;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px dashed #aaa;
+  margin: 4px 0;
+}
+
+/* Recess Cell */
+.recess-cell-merged {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #856404;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  padding: 1rem;
+  border-left: 4px solid #f59e0b;
+  border-right: 4px solid #f59e0b;
+}
+
+/* Timetable Table */
+.timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.timetable-table th,
+.timetable-table td {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem 0.5rem;
+}
+
+.timetable-table thead th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  text-align: center;
+  color: #495057;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timetable-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .timetable-header #university-logo {
+    max-width: 120px;
+  }
+  
+  .timetable-selector-container {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  #timetableSelector {
+    width: 100%;
+  }
+  
+  .timetable-title {
+    font-size: 1.5rem;
+  }
+  
+  .timetable-actions {
+    flex-direction: column;
+  }
+  
+  .timetable-actions .btn {
+    width: 100%;
+  }
+}

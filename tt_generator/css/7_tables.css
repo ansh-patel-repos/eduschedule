@@ -1,0 +1,64 @@
+/* ============================================
+   TABLES
+   ============================================ */
+.courses-table, .timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.courses-table th,
+.courses-table td,
+.timetable-table th,
+.timetable-table td {
+  text-align: left;
+  padding: 1rem 0.75rem;
+  border: 1px solid #e9ecef;
+}
+
+.courses-table thead th,
+.timetable-table thead th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.courses-table tbody tr:hover,
+.timetable-table tbody tr:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+.courses-table .actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+/* Grid Layout for Lists */
+#subjectsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.time-settings-grid, .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}

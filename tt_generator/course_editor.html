@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Editor - EduSchedule</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="course_setup.css" />
+  </head>
+  <body>
+    <div class="course-editor-wrapper">
+      <h2 class="page-title-editor" id="editorTitle" ></h2>
+
+      <form id="courseDetailForm" novalidate>
+        <input type="hidden" id="courseEditId" />
+
+        <!-- SECTION 1: Basic Course Information (Separate Card) -->
+        <div class="course-basic-info-section">
+          <div class="form-group">
+            <label for="courseBranch">Branch Name:</label>
+            <input 
+              type="text" 
+              id="courseBranch" 
+              placeholder="E.g., CSE" 
+              required 
+            />
+          </div>
+          <div class="form-group">
+            <label for="courseSemester">Semester:</label>
+            <input 
+              type="number" 
+              id="courseSemester" 
+              placeholder="E.g., 5" 
+              min="1" 
+              max="8" 
+              required 
+            />
+          </div>
+        </div>
+
+        <!-- SECTION 2: Subjects and Batches (Separate Card) -->
+        <div class="course-subjects-section">
+          <h3 class="section-title">Subjects for this Course</h3>
+          
+          <div id="subjectsList">
+            <!-- Subject cards will be dynamically added here -->
+          </div>
+
+          <button
+            type="button"
+            id="addSubjectBtn"
+            class="btn-add-subject"
+          >
+            <i class="fas fa-plus"></i> Add Subject
+          </button>
+
+          <hr class="section-divider">
+
+          <div class="form-group">
+            <label for="batchInput">Batches (for Labs)</label>
+            <p class="helper-text">
+              Add batches like A1, A2, A3 etc. (used for lab distribution)
+            </p>
+            <div class="tags-display" id="globalBatchesDisplay"></div>
+            <input
+              type="text"
+              class="tag-input"
+              id="batchInput"
+              placeholder="Type batch name and press Enter..."
+            />
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-actions-editor">
+          <button type="submit" class="btn btn-primary">Save Course</button>
+          <button 
+            type="button" 
+            id="cancelBtn" 
+            class="btn btn-danger"
+            onclick="window.location.href='course_setup.html'"
+          >
+            Back
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- JS Files -->
+    <script type="module" src="./scheduler_data.js"></script>
+    <script type="module" src="./scheduler_utils.js"></script>
+    <script type="module" src="./course_editor.js"></script>
+  </body>
+</html>

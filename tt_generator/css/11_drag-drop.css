@@ -1,0 +1,97 @@
+/* ============================================
+   DRAG & DROP FUNCTIONALITY
+   ============================================ */
+.edit-mode-active {
+  border: 3px dashed #ffc107 !important;
+  background-color: #fff9e6 !important;
+}
+
+.draggable-cell {
+  cursor: move;
+  transition: all 0.3s ease;
+  position: relative;
+  user-select: none;
+}
+
+.draggable-cell::before {
+  content: "⋮⋮";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #cbd5e0;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.draggable-cell:hover::before {
+  opacity: 1;
+}
+
+.draggable-cell:hover {
+  background-color: #e3f2fd;
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: grab;
+}
+
+.draggable-cell:active {
+  cursor: grabbing;
+}
+
+.dragging {
+  opacity: 0.5;
+  background-color: #ffeb3b !important;
+  transform: scale(0.95);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.drop-zone-valid {
+  background-color: #c8e6c9 !important;
+  border: 2px dashed #4caf50 !important;
+  animation: pulse-green 1s infinite;
+}
+
+.drop-zone-invalid {
+  background-color: #ffcdd2 !important;
+  border: 2px dashed #f44336 !important;
+  cursor: not-allowed;
+  animation: shake 0.5s;
+}
+
+.drop-zone-hover {
+  background-color: #bbdefb !important;
+  border: 2px solid #2196f3 !important;
+  transform: scale(1.05);
+}
+
+.unsaved-badge {
+  display: inline-block;
+  background: #dc3545;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  margin-left: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+/* Conflict Indicator */
+.conflict-indicator {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  background: #ef4444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  animation: pulse-red 1s infinite;
+}

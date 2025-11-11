@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Timetable - EduSchedule</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="tt_selector.css">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-calendar-alt"></i>
+        <span>EduSchedule</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tt_selector.html" class="active">Generator</a></li>
+        <li><a href="templates.html">Templates</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Progress Steps -->
+    <div class="progress-steps">
+      <div class="step active">
+        <div class="step-number">1</div>
+        <div class="step-label">Select Details</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-label">Configure</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-label">Generate</div>
+      </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="main-card">
+      <!-- Header -->
+      <div class="card-header">
+        <div class="header-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1>Create Your Timetable</h1>
+        <p>Configure your course details to generate an optimized schedule</p>
+      </div>
+
+      <!-- Form -->
+      <form id="courseForm" class="course-form">
+        <!-- Course Type -->
+        <div class="form-section">
+          <label class="form-label">
+            <i class="fas fa-university"></i>
+            Course Type
+            <span class="required">*</span>
+          </label>
+          <p class="label-description">Select the type of academic program</p>
+          
+          <div class="radio-grid">
+            <label class="radio-card">
+              <input type="radio" name="courseType" value="Engineering" checked>
+              <div class="radio-content">
+                <i class="fas fa-cogs"></i>
+                <span>Engineering</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="courseType" value="Medical">
+              <div class="radio-content">
+                <i class="fas fa-heartbeat"></i>
+                <span>Medical</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="courseType" value="Arts">
+              <div class="radio-content">
+                <i class="fas fa-palette"></i>
+                <span>Arts</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="courseType" value="Commerce">
+              <div class="radio-content">
+                <i class="fas fa-chart-line"></i>
+                <span>Commerce</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="courseType" value="Science">
+              <div class="radio-content">
+                <i class="fas fa-flask"></i>
+                <span>Science</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="courseType" value="Management">
+              <div class="radio-content">
+                <i class="fas fa-briefcase"></i>
+                <span>Management</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Lecture Duration -->
+        <div class="form-section">
+          <label class="form-label">
+            <i class="fas fa-clock"></i>
+            Lecture Duration
+            <span class="required">*</span>
+          </label>
+          <p class="label-description">How long is each class period?</p>
+          
+          <div class="duration-options">
+            <label class="duration-card">
+              <input type="radio" name="lectureDuration" value="45" checked>
+              <div class="duration-content">
+                <div class="duration-time">45 min</div>
+                <div class="duration-label">Short</div>
+              </div>
+            </label>
+
+            <label class="duration-card">
+              <input type="radio" name="lectureDuration" value="60">
+              <div class="duration-content">
+                <div class="duration-time">1 hour</div>
+                <div class="duration-label">Standard</div>
+              </div>
+            </label>
+
+            <label class="duration-card">
+              <input type="radio" name="lectureDuration" value="90">
+              <div class="duration-content">
+                <div class="duration-time">1.5 hours</div>
+                <div class="duration-label">Extended</div>
+              </div>
+            </label>
+
+            <label class="duration-card">
+              <input type="radio" name="lectureDuration" value="120">
+              <div class="duration-content">
+                <div class="duration-time">2 hours</div>
+                <div class="duration-label">Lab</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Additional Options (Optional) -->
+        <div class="form-section optional-section collapsed" id="optionalSection">
+          <button type="button" class="toggle-optional" onclick="toggleOptional()">
+            <i class="fas fa-chevron-down"></i>
+            Advanced Options (Optional)
+          </button>
+
+          <div class="optional-content">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="fas fa-users"></i>
+                  Number of Sections
+                </label>
+                <input type="number" name="sections" min="1" max="10" value="1" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <i class="fas fa-calendar-week"></i>
+                  Working Days
+                </label>
+                <select name="workingDays" class="form-input">
+                  <option value="5">5 days (Mon-Fri)</option>
+                  <option value="6" selected>6 days (Mon-Sat)</option>
+                  <option value="7">7 days (Mon-Sun)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">
+            <i class="fas fa-arrow-right"></i>
+            Proceed to Configure
+          </span>
+          <span class="btn-loader" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i>
+            Please wait...
+          </span>
+        </button>
+
+        <!-- Help Text -->
+        <div class="help-text">
+          <i class="fas fa-info-circle"></i>
+          You can customize all details in the next step
+        </div>
+      </form>
+    </div>
+
+    <!-- Features -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Fast Generation</h3>
+        <p>Create optimized timetables in seconds</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-sync-alt"></i>
+        </div>
+        <h3>Auto-Optimize</h3>
+        <p>Avoid conflicts automatically</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Mobile Friendly</h3>
+        <p>Access anywhere, anytime</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
+        <h3>Cloud Sync</h3>
+        <p>Your data is always safe</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="tt_selector.js"></script>
+</body>
+</html>

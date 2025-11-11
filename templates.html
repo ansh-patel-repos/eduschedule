@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates - EduSchedule</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-calendar-alt"></i>
+                <span>EduSchedule</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="tt_selection/tt_selector.html" class="nav-link">Generator</a></li>
+                <li><a href="templates.html" class="nav-link active">Templates</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="page-header">
+            <div class="container">
+                <h1><i class="fas fa-layer-group"></i> Timetable Templates</h1>
+                <p>Choose from pre-designed templates to get started quickly</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="templates-grid">
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-header">Engineering Schedule</div>
+                        <div class="preview-content">
+                            <div class="preview-row">
+                                <span class="time">9:00</span>
+                                <span class="subject math">Mathematics</span>
+                                <span class="subject physics">Physics</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">10:00</span>
+                                <span class="subject chemistry">Chemistry</span>
+                                <span class="subject programming">Programming</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">11:00</span>
+                                <span class="subject english">English</span>
+                                <span class="subject lab">Lab</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Engineering Schedule</h3>
+                        <p>Perfect for engineering students with core subjects like Mathematics, Physics, and Programming.</p>
+                        <div class="template-stats">
+                            <span><i class="fas fa-clock"></i> 6 hours/day</span>
+                            <span><i class="fas fa-book"></i> 8 subjects</span>
+                        </div>
+                        <button class="btn btn-primary template-btn" onclick="loadTemplate('engineering')">
+                            <i class="fas fa-download"></i> Use Template
+                        </button>
+                    </div>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-header">Business Schedule</div>
+                        <div class="preview-content">
+                            <div class="preview-row">
+                                <span class="time">9:00</span>
+                                <span class="subject business">Business</span>
+                                <span class="subject economics">Economics</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">10:00</span>
+                                <span class="subject accounting">Accounting</span>
+                                <span class="subject marketing">Marketing</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">11:00</span>
+                                <span class="subject statistics">Statistics</span>
+                                <span class="subject management">Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Business Schedule</h3>
+                        <p>Designed for business students with subjects like Economics, Accounting, and Marketing.</p>
+                        <div class="template-stats">
+                            <span><i class="fas fa-clock"></i> 5 hours/day</span>
+                            <span><i class="fas fa-book"></i> 7 subjects</span>
+                        </div>
+                        <button class="btn btn-primary template-btn" onclick="loadTemplate('business')">
+                            <i class="fas fa-download"></i> Use Template
+                        </button>
+                    </div>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-header">Science Schedule</div>
+                        <div class="preview-content">
+                            <div class="preview-row">
+                                <span class="time">9:00</span>
+                                <span class="subject biology">Biology</span>
+                                <span class="subject chemistry">Chemistry</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">10:00</span>
+                                <span class="subject physics">Physics</span>
+                                <span class="subject math">Mathematics</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">11:00</span>
+                                <span class="subject lab">Lab Work</span>
+                                <span class="subject research">Research</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Science Schedule</h3>
+                        <p>Ideal for science students with Biology, Chemistry, Physics, and lab sessions.</p>
+                        <div class="template-stats">
+                            <span><i class="fas fa-clock"></i> 7 hours/day</span>
+                            <span><i class="fas fa-book"></i> 9 subjects</span>
+                        </div>
+                        <button class="btn btn-primary template-btn" onclick="loadTemplate('science')">
+                            <i class="fas fa-download"></i> Use Template
+                        </button>
+                    </div>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-header">Arts Schedule</div>
+                        <div class="preview-content">
+                            <div class="preview-row">
+                                <span class="time">9:00</span>
+                                <span class="subject literature">Literature</span>
+                                <span class="subject history">History</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">10:00</span>
+                                <span class="subject philosophy">Philosophy</span>
+                                <span class="subject art">Fine Arts</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">11:00</span>
+                                <span class="subject language">Language</span>
+                                <span class="subject sociology">Sociology</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Arts Schedule</h3>
+                        <p>Crafted for arts students with Literature, History, Philosophy, and creative subjects.</p>
+                        <div class="template-stats">
+                            <span><i class="fas fa-clock"></i> 5 hours/day</span>
+                            <span><i class="fas fa-book"></i> 6 subjects</span>
+                        </div>
+                        <button class="btn btn-primary template-btn" onclick="loadTemplate('arts')">
+                            <i class="fas fa-download"></i> Use Template
+                        </button>
+                    </div>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-header">Medical Schedule</div>
+                        <div class="preview-content">
+                            <div class="preview-row">
+                                <span class="time">8:00</span>
+                                <span class="subject anatomy">Anatomy</span>
+                                <span class="subject physiology">Physiology</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">10:00</span>
+                                <span class="subject biochemistry">Biochemistry</span>
+                                <span class="subject pathology">Pathology</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">2:00</span>
+                                <span class="subject clinical">Clinical</span>
+                                <span class="subject surgery">Surgery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Medical Schedule</h3>
+                        <p>Comprehensive schedule for medical students with clinical rotations and theory classes.</p>
+                        <div class="template-stats">
+                            <span><i class="fas fa-clock"></i> 8 hours/day</span>
+                            <span><i class="fas fa-book"></i> 12 subjects</span>
+                        </div>
+                        <button class="btn btn-primary template-btn" onclick="loadTemplate('medical')">
+                            <i class="fas fa-download"></i> Use Template
+                        </button>
+                    </div>
+                </div>
+
+                <div class="template-card">
+                    <div class="template-preview">
+                        <div class="preview-header">Computer Science</div>
+                        <div class="preview-content">
+                            <div class="preview-row">
+                                <span class="time">9:00</span>
+                                <span class="subject programming">Programming</span>
+                                <span class="subject algorithms">Algorithms</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">11:00</span>
+                                <span class="subject database">Database</span>
+                                <span class="subject networks">Networks</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="time">2:00</span>
+                                <span class="subject project">Project</span>
+                                <span class="subject lab">Lab</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Computer Science</h3>
+                        <p>Tailored for CS students with programming, algorithms, databases, and practical labs.</p>
+                        <div class="template-stats">
+                            <span><i class="fas fa-clock"></i> 6 hours/day</span>
+                            <span><i class="fas fa-book"></i> 10 subjects</span>
+                        </div>
+                        <button class="btn btn-primary template-btn" onclick="loadTemplate('computer-science')">
+                            <i class="fas fa-download"></i> Use Template
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-template-section">
+                <div class="custom-template-card">
+                    <div class="custom-template-content">
+                        <h2><i class="fas fa-plus-circle"></i> Create Custom Template</h2>
+                        <p>Can't find the perfect template? Create your own custom template and save it for future use.</p>
+                        <a href="generator.html" class="btn btn-secondary btn-large">
+                            <i class="fas fa-tools"></i> Create Custom Template
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduSchedule. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="navigation.js"></script>
+    <script src="templates.js"></script>
+</body>
+</html>
